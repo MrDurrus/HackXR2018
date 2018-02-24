@@ -14,4 +14,15 @@ public class Player : MonoBehaviour {
 		// player's position
 		Vector3 playerPos = this.transform.position;
 	}
+
+	// link platform with player once they come into contact
+	void onTriggerEnter(Collider col) {
+		if (col.gameObject.tag == "Cube") {
+			col.transform.parent = this.transform.parent;
+		}
+	}
+
+	void onTriggerExit(Collider col) {
+		
+			
 }
