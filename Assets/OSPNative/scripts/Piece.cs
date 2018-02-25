@@ -6,6 +6,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour {
 
 	[SerializedField] boolean attached = true;
+	GameObject piece;
 	Vector3 markerPos;
 	List<Vector3> platformPts, cubePts;
 
@@ -14,6 +15,12 @@ public class Piece : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {}
+	
+	// Piece constructor
+	public Piece() {
+		piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		piece.AddComponent<Rigidbody> ();
+	}
 
 	public void pullPiece(GameObject controller, GameObject platform) {
 		if (!attached) {
