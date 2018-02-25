@@ -5,7 +5,7 @@ using UnityEngine;
 // floating pieces 
 public class Piece : MonoBehaviour {
 
-	boolean attatched = false;
+	boolean attached = true;
 	GameObject marker;
 	Vector3 markerPos;
 	List<Vector3> platformPts, cubePts;
@@ -17,8 +17,10 @@ public class Piece : MonoBehaviour {
 	void Update() {}
 
 	public void pullPiece(GameObject controller, GameObject platform) {
-		move(controller);
-		lockCube(platform);
+		if (!attached) {
+			move (controller);
+			lockCube (platform);
+		}
 	}
 
 	// move floating piece using controller
@@ -51,11 +53,12 @@ public class Piece : MonoBehaviour {
 					GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
 				}
 				// locks cube
-				if (distance == 5.0 && !OVRInput.Get(OVRInput.RawButton.RIndexTrigger && !attached)) {
+				if (distance == 5.0 && !OVRInput.Get(OVRInput.RawButton.RIndexTrigger &&)) {
 					this.transform.parent = platform.transform;
 					marker.transform.localPosition = Vector3.zero;
 				}
 			}
 		}
+		attached = true;
 	}
 }
