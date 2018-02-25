@@ -60,7 +60,7 @@ public class Piece : MonoBehaviour {
 					marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
 				}
 				// locks cube
-				if (distance == 5.0 && !OVRInput.Get(OVRInput.RawButton.RIndexTrigger &&)) {
+				if (distance == 5.0 && !OVRInput.Get(OVRInput.RawButton.RIndexTrigger)) {
 					this.transform.parent = platform.transform;
 					marker.transform.localPosition = Vector3.zero;
 				}
