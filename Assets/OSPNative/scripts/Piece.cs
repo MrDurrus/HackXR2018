@@ -13,6 +13,16 @@ public class Piece : MonoBehaviour {
 	void Start () {
 	}
 
+	// Update is called once per frame
+	void Update () {
+		// disintegrates block five seconds after it's attached
+		timer += Time.deltaTime;
+		if (timer > waitTime) {
+			this.transform.parent = null;
+			Destroy (this);
+		}
+	}
+	
 	// move floating piece using controller
 	void move(GameObject controller, GameObject platform) {
 		// distance between controller and the floating cube
