@@ -5,7 +5,7 @@ using UnityEngine;
 // floating pieces 
 public class Piece : MonoBehaviour {
 
-	boolean attached = true;
+	[SerializedField] boolean attached = true;
 	Vector3 markerPos;
 	List<Vector3> platformPts, cubePts;
 
