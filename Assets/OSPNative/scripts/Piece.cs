@@ -6,7 +6,6 @@ using UnityEngine;
 public class Piece : MonoBehaviour {
 
 	boolean attached = true;
-	GameObject marker;
 	Vector3 markerPos;
 	List<Vector3> platformPts, cubePts;
 
@@ -36,6 +35,7 @@ public class Piece : MonoBehaviour {
 
 	// locks cube to platform
 	void lockCube(GameObject platform) {
+		GameObject marker;
 		// list of platform vertices 
 		Mesh platformMesh = platform.GetComponent<MeshFilter>().mesh;
 		Vector3[] platformPts = platformMesh.vertices;
@@ -50,7 +50,7 @@ public class Piece : MonoBehaviour {
 				float distance = Vector3.Distance(platformPts[i], cubePts[j]);
 				// shows marker
 				if (distance < 20.0) {
-					GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
+					marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
 				}
 				// locks cube
 				if (distance == 5.0 && !OVRInput.Get(OVRInput.RawButton.RIndexTrigger &&)) {
