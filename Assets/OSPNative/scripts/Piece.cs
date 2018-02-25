@@ -5,6 +5,8 @@ using UnityEngine;
 // floating pieces 
 public class Piece : MonoBehaviour {
 
+	float waitTime = 5f;
+	float timer;
 	GameObject marker;
 	Vector3 markerPos;
 	List<Vector3> platformPts, cubePts;
@@ -12,14 +14,16 @@ public class Piece : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-		// disintegrates block five seconds after it's attached
-		timer += Time.deltaTime;
-		if (timer > waitTime) {
-			this.transform.parent = null;
-			Destroy (this);
+		if(this.transform.parent ~= null) {
+			// disintegrates block five seconds after it's attached
+			timer += Time.deltaTime;
+			if (timer > waitTime) {
+				this.transform.parent = null;
+				Destroy (this);	
+			}
 		}
 	}
 	
